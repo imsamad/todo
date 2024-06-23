@@ -113,7 +113,9 @@ func deleteTodo(c *gin.Context) {
 
 func main() {
 	router := gin.New()
+	
 	gin.SetMode(gin.ReleaseMode)
+	
 	router.GET("/", serveIndex)
 	router.GET("/todos", getTodos)
 	router.POST("/todos", postTodo)
@@ -124,6 +126,8 @@ func main() {
 	if port == "" {
 		port = "4000"
 	}
+
 	fmt.Println("PORT: " + port)
 	router.Run(":"+port)
+	
 }
