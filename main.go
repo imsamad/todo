@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -112,6 +114,10 @@ func main() {
 	router.GET("/todos/:id", getTodoByID)
 	router.PUT("/todos/:id", updateTodo)
 	router.DELETE("/todos/:id", deleteTodo)
-
-	router.Run("localhost:4000")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	fmt.Println("PORT: " + port)
+	router.Run("localhost:"+port)
 }
