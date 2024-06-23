@@ -26,6 +26,10 @@ func getTodos(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, todos)
 }
 
+func serveIndex(c *gin.Context) {
+	c.File("./static/index.html")
+}
+
 var idCounter = 3
 // var idMutex sync.Mutex
 
@@ -109,6 +113,8 @@ func deleteTodo(c *gin.Context) {
 
 func main() {
 	router := gin.New()
+	gin.SetMode(gin.ReleaseMode)
+	router.GET("/", serveIndex)
 	router.GET("/todos", getTodos)
 	router.POST("/todos", postTodo)
 	router.GET("/todos/:id", getTodoByID)

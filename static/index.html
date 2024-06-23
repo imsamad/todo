@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TODO</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+      hljs.configure({
+        tabReplace: '    ',
+      });
+      hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+      body {
+        position: relative;
+      }
+
+      h1 {
+        margin-top: 5px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #2b2b2b;
+      }
+
+      h2:after {
+        content: ' ';
+      }
+
+      h5 {
+        font-weight: bold;
+      }
+
+      h1 a,
+      h2 a,
+      h3 a,
+      h4 a,
+      h5 a,
+      h6 a {
+        display: none;
+        position: absolute;
+        margin-left: 8px;
+      }
+
+      h1:hover a,
+      h2:hover a,
+      h3:hover a,
+      h4:hover a,
+      h5:hover a,
+      h6:hover a {
+        color: #a5a5a5;
+        display: initial;
+      }
+
+      .nav.nav-tabs > li > a {
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+
+      .tab-content {
+        padding-top: 8px;
+      }
+
+      .table {
+        margin-bottom: 8px;
+      }
+
+      pre {
+        border-radius: 0px;
+        border: none;
+      }
+
+      pre code {
+        margin: -9.5px;
+      }
+
+      .request {
+        margin-top: 12px;
+        margin-bottom: 24px;
+      }
+
+      .response-text-sample {
+        padding: 0px !important;
+      }
+
+      .response-text-sample pre {
+        margin-bottom: 0px;
+      }
+
+      #sidebar-wrapper {
+        z-index: 1000;
+        position: fixed;
+        left: 250px;
+        width: 250px;
+        height: 100%;
+        margin-left: -250px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background: #2b2b2b;
+        padding-top: 20px;
+      }
+
+      #sidebar-wrapper ul {
+        width: 250px;
+      }
+
+      #sidebar-wrapper ul li {
+        margin-right: 10px;
+      }
+
+      #sidebar-wrapper ul li a:hover {
+        background: inherit;
+        text-decoration: none;
+      }
+
+      #sidebar-wrapper ul li a {
+        display: block;
+        color: #ecf0f1;
+        padding: 6px 15px;
+      }
+
+      #sidebar-wrapper ul li ul {
+        padding-left: 25px;
+      }
+
+      #sidebar-wrapper ul li ul li a {
+        padding: 1px 0px;
+      }
+
+      #sidebar-wrapper ul li a:hover,
+      #sidebar-wrapper ul li a:focus {
+        color: #e0c46c;
+        border-right: solid 1px #e0c46c;
+      }
+
+      #sidebar-wrapper ul li.active > a {
+        color: #e0c46c;
+        border-right: solid 3px #e0c46c;
+      }
+
+      #sidebar-wrapper ul li:not(.active) ul {
+        display: none;
+      }
+
+      #page-content-wrapper {
+        width: 100%;
+        position: absolute;
+        padding: 15px 15px 15px 250px;
+      }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".scrollspy">
+    <div id="sidebar-wrapper">
+      <div class="scrollspy">
+        <ul id="main-menu" data-spy="affix" class="nav">
+          <li>
+            <a href="#doc-general-notes">General notes</a>
+          </li>
+
+          <li>
+            <a href="#doc-api-detail">API detail</a>
+          </li>
+
+          <li>
+            <a href="#request-get-todos">Get todos</a>
+          </li>
+
+          <li>
+            <a href="#request-create-todo">Create Todo</a>
+          </li>
+
+          <li>
+            <a href="#request-get-single-todo">Get single todo</a>
+          </li>
+
+          <li>
+            <a href="#request-modify-todo">Modify Todo</a>
+          </li>
+
+          <li>
+            <a href="#request-delete-todo">Delete Todo</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>TODO</h1>
+
+            <h2 id="doc-general-notes">
+              General notes
+              <a href="#doc-general-notes"
+                ><i class="glyphicon glyphicon-link"></i
+              ></a>
+            </h2>
+
+            <h1>🚀 Get started here</h1>
+
+            <p>
+              Introducing the Todo API, to manage task. Built with Gin Gonic in
+              Go, it offers CRUD operations with input validation and unique ID
+              generation.
+            </p>
+
+            <h2 id="doc-api-detail">
+              API detail
+              <a href="#doc-api-detail"
+                ><i class="glyphicon glyphicon-link"></i
+              ></a>
+            </h2>
+
+            <div class="request">
+              <h3 id="request-get-todos">
+                Get todos
+                <a href="#request-get-todos"
+                  ><i class="glyphicon glyphicon-link"></i
+                ></a>
+              </h3>
+
+              <div>
+                <p>
+                  This is a GET request and it is used to &ldquo;get&rdquo; data
+                  from an endpoint. There is no request body for a GET request.
+                </p>
+
+                <p>
+                  A successful GET response will have a
+                  <code>200 OK</code> status, and JSON data.
+                </p>
+              </div>
+
+              <div>
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active">
+                    <a href="#request-get-todos-example-curl" data-toggle="tab"
+                      >Curl</a
+                    >
+                  </li>
+                  <li role="presentation">
+                    <a href="#request-get-todos-example-http" data-toggle="tab"
+                      >HTTP</a
+                    >
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div
+                    class="tab-pane active"
+                    id="request-get-todos-example-curl"
+                  >
+                    <pre><code class="hljs curl">curl -X GET "https://todo-7ni6.onrender.com/todos"</code></pre>
+                  </div>
+                  <div class="tab-pane" id="request-get-todos-example-http">
+                    <pre><code class="hljs http">GET /todos HTTP/1.1
+Host: todo-7ni6.onrender.com</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+            </div>
+
+            <div class="request">
+              <h3 id="request-create-todo">
+                Create Todo
+                <a href="#request-create-todo"
+                  ><i class="glyphicon glyphicon-link"></i
+                ></a>
+              </h3>
+
+              <div>
+                <p>
+                  This is a POST request, submitting data to an API via the
+                  request body. This request submits JSON data, and the data is
+                  reflected in the response.
+                </p>
+
+                <p>
+                  A successful POST request typically returns a
+                  <code>200 OK</code> or <code>201 Created</code> response code.
+                </p>
+              </div>
+
+              <div>
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active">
+                    <a
+                      href="#request-create-todo-example-curl"
+                      data-toggle="tab"
+                      >Curl</a
+                    >
+                  </li>
+                  <li role="presentation">
+                    <a
+                      href="#request-create-todo-example-http"
+                      data-toggle="tab"
+                      >HTTP</a
+                    >
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div
+                    class="tab-pane active"
+                    id="request-create-todo-example-curl"
+                  >
+                    <pre><code class="hljs curl">curl -X POST -d '{
+	"title": "Add TODO"
+}' "https://todo-7ni6.onrender.com/todos"</code></pre>
+                  </div>
+                  <div class="tab-pane" id="request-create-todo-example-http">
+                    <pre><code class="hljs http">POST /todos HTTP/1.1
+Host: todo-7ni6.onrender.com
+
+{
+	"title": "Add TODO"
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+            </div>
+
+            <div class="request">
+              <h3 id="request-get-single-todo">
+                Get single todo
+                <a href="#request-get-single-todo"
+                  ><i class="glyphicon glyphicon-link"></i
+                ></a>
+              </h3>
+
+              <div>
+                <p>
+                  This is a GET request and it is used to &ldquo;get&rdquo; data
+                  from an endpoint. There is no request body for a GET request.
+                </p>
+
+                <p>
+                  A successful GET response will have a
+                  <code>200 OK</code> status, and JSON data.
+                </p>
+              </div>
+
+              <div>
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active">
+                    <a
+                      href="#request-get-single-todo-example-curl"
+                      data-toggle="tab"
+                      >Curl</a
+                    >
+                  </li>
+                  <li role="presentation">
+                    <a
+                      href="#request-get-single-todo-example-http"
+                      data-toggle="tab"
+                      >HTTP</a
+                    >
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div
+                    class="tab-pane active"
+                    id="request-get-single-todo-example-curl"
+                  >
+                    <pre><code class="hljs curl">curl -X GET "https://todo-7ni6.onrender.com/todos/1"</code></pre>
+                  </div>
+                  <div
+                    class="tab-pane"
+                    id="request-get-single-todo-example-http"
+                  >
+                    <pre><code class="hljs http">GET /todos/1 HTTP/1.1
+Host: todo-7ni6.onrender.com</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+            </div>
+
+            <div class="request">
+              <h3 id="request-modify-todo">
+                Modify Todo
+                <a href="#request-modify-todo"
+                  ><i class="glyphicon glyphicon-link"></i
+                ></a>
+              </h3>
+
+              <div>
+                <p>
+                  This is a PUT request and it is used to overwrite an existing
+                  piece of data. For instance, after you create an entity with a
+                  POST request, you may want to modify that later. You can do
+                  that using a PUT request. You typically identify the entity
+                  being updated by including an identifier in the URL (eg.
+                  <code>id=1</code>).
+                </p>
+
+                <p>
+                  A successful PUT request typically returns a
+                  <code>200 OK.</code>
+                </p>
+              </div>
+
+              <div>
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active">
+                    <a
+                      href="#request-modify-todo-example-curl"
+                      data-toggle="tab"
+                      >Curl</a
+                    >
+                  </li>
+                  <li role="presentation">
+                    <a
+                      href="#request-modify-todo-example-http"
+                      data-toggle="tab"
+                      >HTTP</a
+                    >
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div
+                    class="tab-pane active"
+                    id="request-modify-todo-example-curl"
+                  >
+                    <pre><code class="hljs curl">curl -X PUT -d '{
+    "title":"wjsbhayuw"
+}' "https://todo-7ni6.onrender.com/todos/1"</code></pre>
+                  </div>
+                  <div class="tab-pane" id="request-modify-todo-example-http">
+                    <pre><code class="hljs http">PUT /todos/1 HTTP/1.1
+Host: todo-7ni6.onrender.com
+
+{
+    "title":"wjsbhayuw"
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+            </div>
+
+            <div class="request">
+              <h3 id="request-delete-todo">
+                Delete Todo
+                <a href="#request-delete-todo"
+                  ><i class="glyphicon glyphicon-link"></i
+                ></a>
+              </h3>
+
+              <div>
+                <p>
+                  This is a DELETE request, and it is used to delete data that
+                  was previously created via a POST request. You typically
+                  identify the entity being updated by including an identifier
+                  in the URL (eg. <code>id=1</code>).
+                </p>
+
+                <p>
+                  A successful DELETE request typically returns a
+                  <code>200 OK.</code>
+                </p>
+              </div>
+
+              <div>
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active">
+                    <a
+                      href="#request-delete-todo-example-curl"
+                      data-toggle="tab"
+                      >Curl</a
+                    >
+                  </li>
+                  <li role="presentation">
+                    <a
+                      href="#request-delete-todo-example-http"
+                      data-toggle="tab"
+                      >HTTP</a
+                    >
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div
+                    class="tab-pane active"
+                    id="request-delete-todo-example-curl"
+                  >
+                    <pre><code class="hljs curl">curl -X DELETE "https://todo-7ni6.onrender.com/todos/1"</code></pre>
+                  </div>
+                  <div class="tab-pane" id="request-delete-todo-example-http">
+                    <pre><code class="hljs http">DELETE /todos/1 HTTP/1.1
+Host: todo-7ni6.onrender.com</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('table:not(.table)').addClass('table table-bordered');
+      });
+    </script>
+  </body>
+</html>
